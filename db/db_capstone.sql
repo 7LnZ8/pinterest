@@ -41,8 +41,8 @@ CREATE TABLE luu_anh (
 -- ==================== DATA MẪU ĐỂ TEST ====================
 -- Mật khẩu: 1234 (đã hash bằng bcrypt)
 INSERT INTO nguoi_dung (email, mat_khau, ho_ten, tuoi, anh_dai_dien) VALUES 
-('hoan@gmail.com', '$2b$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcfl7p92ldGxad68LJZdL17lhWy', 'Khai Hoan', 21, ''),
-('sang@gmail.com', '$2b$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcfl7p92ldGxad68LJZdL17lhWy', 'Sang Nguyen', 22, ''),
+('sang@gmail.com', '$2b$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcfl7p92ldGxad68LJZdL17lhWy', 'Ngoc Sang', 20, ''),
+('tuan@gmail.com', '$2b$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcfl7p92ldGxad68LJZdL17lhWy', 'Tuan Tran', 30, ''),
 ('test@gmail.com', '$2b$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcfl7p92ldGxad68LJZdL17lhWy', 'Test User', 25, '');
 
 -- Thêm một số hình ảnh mẫu

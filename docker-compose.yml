@@ -1,0 +1,42 @@
+services:
+  db:
+    image: mysql:8.0
+    container_name: mysql_capstone
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: db_capstone
+    ports:
+      - "3307:3306"
+    volumes:
+      - ./db:/docker-entrypoint-initdb.d
+      - db_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-proot"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  app:
+    build: .
+    container_name: node_capstone
+    restart: always
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./src:/app/src
+      - ./public:/app/public
+    environment:
+      - DB_HOST=db
+      - DB_USER=root
+      - DB_PASS=root
+      - DB_NAME=db_capstone
+      - DB_PORT=3306
+      - PORT=8080
+      - JWT_SECRET=cybersoft_capstone_jwt_secret
+    depends_on:
+      db:
+        condition: service_healthy
+
+volumes:
+  db_data:
